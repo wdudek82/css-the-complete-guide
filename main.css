@@ -31,7 +31,6 @@
   margin: 0.5rem 0;
   text-align: center;
   padding: 1rem;
-  /* transition: box-shadow 500ms ease-in-out; */
   width: 100%;
 }
 
@@ -185,13 +184,18 @@ h1 {
   }
 
   .plan {
-    display: inline-block;
-    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     max-width: 25rem;
     min-width: 13rem;
     transition: box-shadow 300ms ease-in-out;
     width: 30%;
-    vertical-align: middle;
+    margin: 0 1rem;
+  }
+
+  .plan--highlighted {
+    z-index: 50;
   }
 
   .plan:hover,
@@ -200,11 +204,17 @@ h1 {
   }
 
   .plan__list {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .key-feature__list {
+    display: flex;
+    justify-content: center;
   }
 
   .key-feature {
-    display: inline-block;
     margin: 0;
     max-width: 25rem;
     width: 30%;

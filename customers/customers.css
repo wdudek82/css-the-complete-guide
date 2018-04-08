@@ -59,19 +59,21 @@ main {
 
 @media (min-width: 40rem) {
   .testimonial {
+    display: flex;
     margin: 3.5rem auto;
     max-width: 1500px;
+    align-items: center;
+    justify-content: space-around;
   }
 
   .testimonial__info {
-    display: inline-block;
+    /* display: flex; */
+    /* flex-direction: column; */
     width: 30%;
-    vertical-align: middle;
   }
 
   .testimonial__image-container {
     display: inline-block;
     width: 66%;
-    vertical-align: middle;
   }
 }
