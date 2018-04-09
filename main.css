@@ -194,9 +194,9 @@ h1 {
     margin: 0 1rem;
   }
 
-  .plan--highlighted {
+  /* .plan--highlighted {
     z-index: 50;
-  }
+  } */
 
   .plan:hover,
   .plan--highlighted:hover {

@@ -8,6 +8,12 @@
 body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
+  display: grid;
+  grid-template-rows: 3.5rem auto fit-content(8rem);
+  grid-template-areas: "main-header"
+                       "main"
+                       "main-footer";
+  min-height: 100vh;
 }
 
 .backdrop {
@@ -22,9 +28,10 @@ body {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  margin-top: 3.5rem;
+  /* display: flex; */
+  /* flex-direction: column; */
+  grid-area: main;
+  /* margin-top: 3.5rem; */
 }
 
 .main-header {
@@ -37,6 +44,7 @@ main {
   width: 100%;
   top: 0;
   z-index: 1;
+  grid-area: main-header;
 }
 
 .main-header__brand {
@@ -122,6 +130,7 @@ main {
   background: black;
   color: white;
   padding: 1rem;
+  grid-area: main-footer;
 }
 
 .main-footer__links {
@@ -163,9 +172,19 @@ main {
   animation: open-menu 300ms ease-in-out;
 }
 
+.mobile-nav.close {
+  animation: close-menu 300ms ease-in-out;
+  animation-fill-mode: forwards;
+}
+
 @keyframes open-menu {
   from { left: -25rem; }
   to { left: 0; }
+}
+
+@keyframes close-menu {
+  0% { left: 0; }
+  100% { left: -25rem; }
 }
 
 .mobile-nav__items {
@@ -215,6 +234,10 @@ main {
 }
 
 .open {
+  display: block !important;
+}
+
+.close {
   display: block !important;
 }
 
