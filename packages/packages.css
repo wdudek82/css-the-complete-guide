@@ -16,6 +16,7 @@
   border: 3px solid #0e4f1f;
   margin: 2rem 0;
   padding: 2rem;
+  overflow: hidden;
 }
 
 .package a {
@@ -24,15 +25,20 @@
 }
 
 .package__badge {
-  background: #ff5454;
+  /* background: radial-gradient(circle, #ff5454 65%, black); */
+  background: red;
   color: white;
   font-size: 0.75rem;
-  margin: 1.25rem;
+  margin: 0;
   padding: 0.5rem;
   position: absolute;
   right: 0;
-  text-transform: uppercase;
   top: 0;
+  text-transform: uppercase;
+  transform: rotateZ(45deg) translate(3.5rem, -1rem);
+  /* transform-origin: left top; */
+  width: 12rem;
+  text-align: center;
 }
 
 .package__title {
@@ -91,6 +97,7 @@
   .package:hover {
     border-color: red;
     box-shadow: 3px 3px 10px 2px rgb(0, 0, 0, 0.5);
+    animation: float-package 1s ease-out forwards;
   }
 
   .package--free {
@@ -105,4 +112,9 @@
   .package {
     border: 3px solid #0e4f1f;
   }
+}
+
+@keyframes float-package {
+  0% { transform: translateX(0rem); }
+  100% { transform: translateY(-1rem); }
 }

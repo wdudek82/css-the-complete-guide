@@ -1,5 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Anton|Montserrat:400,700,900i');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900i');
 @import url('https://fonts.googleapis.com/css?family=Roboto:900i');
+@import url('https://fonts.googleapis.com/css?family=Anton');
+
+:root {
+  --dark-green: #0e4f1f;
+  --highlight-color: #ff1b68;
+}
 
 * {
   box-sizing: border-box;
@@ -23,6 +29,8 @@ body {
   margin: 0;
   position: fixed;
   top: 0;
+  opacity: 0;
+  transition: opacity 0.3s linear;
   width: 100vw;
   z-index: 100;
 }
@@ -48,7 +56,7 @@ main {
 }
 
 .main-header__brand {
-  color: #0e4f1f;
+  color: var(--dark-green);
   text-decoration: none;
   font-weight: bold;
 }
@@ -94,7 +102,7 @@ main {
 
 .main-nav__item a,
 .mobile-nav__item a {
-  color: #0e4f1f;
+  color: var(--dark-green);
   font-weight: bold;
   text-decoration: none;
 }
@@ -108,10 +116,15 @@ main {
   padding-bottom: 0.5rem;
 }
 
+.main-nav__item--cta {
+  animation: wiggle 200ms 2s 8 ease-out;
+  /* animation-fill-mode: forwards; */
+}
+
 .main-nav__item--cta a,
 .mobile-nav__item--cta a {
-  background: #ff1b68;
-  border: 1px solid #ff1b68;
+  background: var(--highlight-color);
+  border: 1px solid var(--highlight-color);
   border-radius: 0.5rem;
   color: white;
   padding: 0.5rem 1rem;
@@ -122,8 +135,8 @@ main {
 .mobile-nav__item--cta a:hover,
 .mobile-nav_item--cta a:active {
   background: white;
-  border: 1px solid #ff1b68;
-  color: #ff1b68;
+  border: 1px solid var(--highlight-color);
+  color: var(--highlight-color);
 }
 
 .main-footer {
@@ -163,6 +176,8 @@ main {
   position: fixed;
   z-index: 10;
   top: 0;
+  transform: translate(-100%);
+  transition: transform 0.3s ease-out;
   background: white;
   width: 80%;
   height: 100vh;
@@ -175,16 +190,6 @@ main {
 .mobile-nav.close {
   animation: close-menu 300ms ease-in-out;
   animation-fill-mode: forwards;
-}
-
-@keyframes open-menu {
-  from { left: -25rem; }
-  to { left: 0; }
-}
-
-@keyframes close-menu {
-  0% { left: 0; }
-  100% { left: -25rem; }
 }
 
 .mobile-nav__items {
@@ -208,8 +213,8 @@ main {
 }
 
 .button {
-  background: #0e4f1f;
-  border: 2px solid #0e4f1f;
+  background: var(--dark-green);
+  border: 2px solid var(--dark-green);
   border-radius: 5px;
   color: white;
   cursor: pointer;
@@ -223,7 +228,7 @@ main {
 .button:hover,
 .button:active {
   background: white;
-  color: #0e4f1f;
+  color: var(--dark-green);
 }
 
 .button[disabled] {
@@ -235,10 +240,8 @@ main {
 
 .open {
   display: block !important;
-}
-
-.close {
-  display: block !important;
+  opacity: 1 !important;
+  transform: translateY(0rem) !important;
 }
 
 @media (min-width: 40rem) {
@@ -257,4 +260,10 @@ main {
   .main-footer__links {
     flex-direction: row;
   }
+}
+
+@keyframes wiggle {
+  0% { transform: rotateZ(0deg); }
+  50% { transform: rotateZ(-10deg); }
+  100% { transform: rotateZ(10deg); }
 }
